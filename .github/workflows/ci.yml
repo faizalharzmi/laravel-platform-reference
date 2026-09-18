@@ -23,6 +23,10 @@ jobs:
           coverage: none
       - name: Install dependencies
         run: composer install --no-interaction --prefer-dist
+      - name: Prepare application
+        run: |
+          cp .env.example .env
+          php artisan key:generate --force
       - name: Check formatting
         run: vendor/bin/pint --test
       - name: Run feature tests
