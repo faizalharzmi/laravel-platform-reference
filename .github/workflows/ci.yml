@@ -12,7 +12,8 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        php: ['8.3', '8.4']
+        # Laravel 13's current lockfile requires PHP 8.4.1 or newer.
+        php: ['8.4']
     steps:
       - uses: actions/checkout@v4
       - name: Set up PHP
